@@ -2,6 +2,9 @@
 name = "apca-w3"
 version = "0.1.0"
 edition = "2024"
+description = "APCA (Advanced Perceptual Contrast Algorithm) predicts contrast for text and non-text content on self illuminated displays."
+repository = "https://github.com/elbaro/apca-w3/"
+license = "MIT"
 
 [dependencies]
 num-traits = "0.2.19"
