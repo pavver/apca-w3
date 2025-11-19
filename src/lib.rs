@@ -2,7 +2,6 @@ const B_EXP: f64 = 1.414;
 const R_SCALE: f64 = 1.14;
 const B_THRESH: f64 = 0.022;
 const W_OFFSET: f64 = 0.027;
-const P_IN: f64 = 0.0005;
 const P_OUT: f64 = 0.1;
 
 pub fn lightness_contrast_srgb_u8(txt: [u8; 3], bg: [u8; 3]) -> f64 {
