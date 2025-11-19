@@ -34,9 +34,7 @@ pub fn lightness_contrast_srgb(txt: [f64; 3], bg: [f64; 3]) -> f64 {
     let s_norm = y_bg.powf(0.56) - y_txt.powf(0.57);
     let s_rev = y_bg.powf(0.65) - y_txt.powf(0.62);
 
-    let c = if (y_bg - y_txt) < P_IN {
-        0.0
-    } else if y_txt < y_bg {
+    let c = if y_bg > y_txt {
         s_norm * R_SCALE
     } else {
         s_rev * R_SCALE
@@ -83,6 +81,14 @@ mod tests {
         assert_eq_float!(
             lightness_contrast_srgb_u8([85, 139, 207], [224, 223, 222]),
             43.78344811985997
+        );
+        assert_eq_float!(
+            lightness_contrast_srgb_u8([0, 0, 0], [100, 100, 100]),
+            24.438418569325957
+        );
+        assert_eq_float!(
+            lightness_contrast_srgb_u8([100, 100, 100], [0, 0, 0]),
+            -22.196891709805914
         );
     }
 }
